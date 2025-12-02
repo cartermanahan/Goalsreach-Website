@@ -1,0 +1,963 @@
+/*------------------------------------
+  home.css
+  Goalsreach – Home Page
+  (Uses San Francisco system stack from main.css)
+------------------------------------*/
+
+/* Hero layout overrides */
+.hero.gr-hero {
+    position: relative;
+    padding-top: 96px; /* clear navbar */
+    padding-bottom: 72px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at top left, rgba(79, 172, 254, 0.28), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.85), #03070C);
+    color: #ffffff;
+    text-align: left;
+}
+
+.hero.gr-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+    gap: 40px;
+    align-items: center;
+}
+
+/* Hero text */
+.hero-copy {
+    max-width: 620px;
+}
+
+.hero-copy h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.hero-sub {
+    font-size: 0.98rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-bottom: 18px;
+}
+
+.hero-tagline {
+    font-size: 0.88rem;
+    opacity: 0.85;
+    margin-top: 10px;
+    max-width: 460px;
+}
+
+/*------------------------------------
+  HERO PILL
+------------------------------------*/
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.hero-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4facfe;
+}
+
+/* Light mode: readable text + border */
+@media (prefers-color-scheme: light) {
+    .hero-pill {
+        color: #000000;
+        border-color: rgba(0, 0, 0, 0.25);
+    }
+}
+
+/*------------------------------------
+  HERO BUTTONS
+------------------------------------*/
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.hero-btn {
+    border-radius: 999px;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* PRIMARY BUTTON — Dark mode base */
+.hero-btn-primary {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* PRIMARY HOVER — Apple system blue */
+.hero-btn-primary:hover {
+    background: #007AFF;
+    border-color: #007AFF;
+    color: #ffffff;
+}
+
+/* GHOST BUTTON — Dark mode base */
+.hero-btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    background: transparent;
+}
+
+/* GHOST HOVER — Apple system blue */
+.hero-btn-ghost:hover {
+    background: #007AFF;
+    border-color: #007AFF;
+    color: #ffffff;
+}
+
+/*------------------------------------
+  LIGHT MODE OVERRIDES
+------------------------------------*/
+
+@media (prefers-color-scheme: light) {
+
+    .hero-btn-primary {
+        background: rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.25);
+        color: #000000;
+        box-shadow: none;
+    }
+
+    .hero-btn-ghost {
+        border-color: rgba(0, 0, 0, 0.25);
+        color: #000000;
+        background: transparent;
+    }
+}
+
+/* Hero metrics */
+.hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+    max-width: 540px;
+}
+
+.hero-metric-card {
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(5, 5, 10, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    opacity: 0.7;
+    margin-bottom: 3px;
+}
+
+.metric-value {
+    display: block;
+    font-size: 0.86rem;
+    opacity: 0.96;
+}
+
+
+/* HERO-ONLY cleanup */
+.hero-visual,
+.hero-visual > div,
+.hero-visual picture {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* HERO image only */
+.hero-visual img {
+    width: 100%;
+    max-width: 260px; /* keep the tidy phone size */
+    height: auto;
+    border-radius: 24px;
+    display: block;
+    box-shadow: none !important;
+}
+
+
+.hero-caption {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Sections */
+.gr-section {
+    padding: 60px 20px 70px;
+}
+
+.gr-section .section-title {
+    margin-bottom: 20px;
+}
+
+.gr-intro {
+    max-width: 640px;
+    margin: 0 auto 26px;
+    font-size: 0.96rem;
+    line-height: 1.8;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* -----------------------------------
+   Shared “card grid” components
+----------------------------------- */
+
+/* Skills-style grid (used for Goals/Habits/Rewards) */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    position: relative;
+    padding: 18px 18px 20px;
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at top left, rgba(79, 172, 254, 0.3), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 6px;
+}
+
+.skill-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4facfe;
+}
+
+.skill-card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 6px;
+}
+
+.skill-card p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    opacity: 0.94;
+    margin-bottom: 8px;
+}
+
+.skill-tags {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.skill-tags li {
+    font-size: 0.78rem;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    opacity: 0.9;
+}
+
+/* -----------------------------------
+   System section
+----------------------------------- */
+
+.gr-system-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1040px;
+    margin: 0 auto 20px;
+}
+
+.gr-system-card {
+    position: relative;
+    padding: 18px 18px 20px;
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    text-align: left;
+    box-shadow: 0 18px 52px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.gr-system-card::before {
+    content: '';
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at top left, rgba(79, 172, 254, 0.32), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.gr-system-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 22px 64px rgba(0, 0, 0, 0.75);
+}
+
+.gr-system-card:hover::before {
+    opacity: 1;
+}
+
+.gr-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 6px;
+}
+
+.gr-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4facfe;
+}
+
+.gr-system-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.gr-system-card p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    opacity: 0.94;
+}
+
+/* Loop card */
+.gr-loop-card {
+    max-width: 760px;
+    margin: 10px auto 0;
+    padding: 18px 20px 20px;
+    border-radius: 20px;
+    background: rgba(10, 10, 16, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+    text-align: left;
+}
+
+.gr-loop-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.gr-loop-card p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    opacity: 0.94;
+}
+
+/* -----------------------------------
+   Who it’s for – fit grid
+----------------------------------- */
+
+.fit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.service-card {
+    position: relative;
+    padding: 18px 18px 20px;
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    text-align: left;
+    box-shadow: 0 18px 52px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at top left, rgba(79, 172, 254, 0.26), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 22px 64px rgba(0, 0, 0, 0.75);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card-highlight {
+    border-color: rgba(79, 172, 254, 0.7);
+}
+
+.service-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 6px;
+}
+
+.service-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4facfe;
+}
+
+.service-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+}
+
+.service-card p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    opacity: 0.94;
+}
+
+.service-list {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.service-list li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* -----------------------------------
+   App screens
+----------------------------------- */
+
+.gr-screens-grid {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.gr-screen-card {
+    max-width: 720px;
+    margin: 0 auto 18px;
+    padding: 18px 20px 20px;
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+    text-align: left;
+}
+
+.gr-screen-card .gr-pill {
+    margin-bottom: 6px;
+}
+
+.gr-screen-card h3 {
+    font-size: 1.18rem;
+    margin-bottom: 6px;
+}
+
+.gr-screen-card p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    opacity: 0.94;
+}
+
+/* -----------------------------------
+   Pricing
+----------------------------------- */
+
+.gr-pricing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+    gap: 20px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .gr-pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.gr-pricing-card {
+    position: relative;
+    padding: 18px 18px 22px;
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    text-align: left;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+}
+
+.gr-pricing-card .gr-pill {
+    margin-bottom: 6px;
+}
+
+.gr-pricing-card h3 {
+    font-size: 1.18rem;
+    margin-bottom: 6px;
+}
+
+.gr-pricing-card p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    opacity: 0.94;
+}
+
+.gr-pricing-highlight {
+    border-color: rgba(79, 172, 254, 0.8);
+}
+
+.gr-note {
+    font-size: 0.82rem;
+    opacity: 0.75;
+    margin-top: 8px;
+}
+
+.gr-pricing-cta {
+    margin-top: 14px;
+}
+
+/* -----------------------------------
+   FAQ
+----------------------------------- */
+
+.gr-faq-grid {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.gr-faq-item {
+    padding: 16px 18px 18px;
+    border-radius: 18px;
+    background: rgba(15, 15, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    text-align: left;
+}
+
+.gr-faq-item h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.gr-faq-item p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    opacity: 0.92;
+}
+
+/* -----------------------------------
+   Light mode tweaks
+----------------------------------- */
+
+@media (prefers-color-scheme: light) {
+    .hero.gr-hero {
+        background:
+            radial-gradient(circle at top left, rgba(79, 172, 254, 0.18), transparent 60%),
+            linear-gradient(180deg, #ffffff, #f5f5f7);
+        color: #111111;
+    }
+
+    .hero.gr-hero::before {
+        background: radial-gradient(circle at top, rgba(0, 0, 0, 0.06), transparent 60%);
+        opacity: 0.8;
+    }
+
+    .hero-metric-card {
+        background: rgba(255, 255, 255, 0.92);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+
+
+    .skill-card,
+    .gr-system-card,
+    .service-card,
+    .gr-screen-card,
+    .gr-loop-card,
+    .gr-pricing-card,
+    .gr-faq-item {
+        background: #ffffff;
+        border-color: rgba(0, 0, 0, 0.06);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .skill-card::before,
+    .gr-system-card::before,
+    .service-card::before {
+        background: radial-gradient(circle at top left, rgba(79, 172, 254, 0.16), transparent 60%);
+    }
+
+    .service-list li::before,
+    .gr-faq-item::before {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .gr-loop-card {
+        background: #ffffff;
+    }
+}
+
+/* -----------------------------------
+   Responsive
+----------------------------------- */
+
+@media (max-width: 1024px) {
+    .hero-inner {
+        gap: 28px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero.gr-hero {
+        padding-top: 88px;
+        padding-bottom: 60px;
+    }
+
+    .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: left;
+    }
+
+    .hero-copy h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero-visual {
+        margin-top: 10px;
+    }
+
+    .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .hero.gr-hero {
+        padding-top: 84px;
+        padding-bottom: 48px;
+    }
+
+    .hero-inner {
+        padding: 0 16px;
+    }
+
+    .hero-copy h1 {
+        font-size: 2rem;
+    }
+
+    .hero-metrics {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gr-section {
+        padding: 48px 16px 56px;
+    }
+}
+
+/* =============================
+   Reviews Section
+============================= */
+
+.gr-reviews .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.review-card {
+    padding: 18px 20px 20px;
+    border-radius: 20px;
+    background: rgba(15, 15, 20, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 52px rgba(0, 0, 0, 0.65);
+    text-align: left;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(79, 172, 254, 0.6);
+    box-shadow: 0 22px 64px rgba(0, 0, 0, 0.75);
+}
+
+.review-stars {
+    font-size: 1.1rem;
+    color: #ffd86b;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.review-title {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.review-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    opacity: 0.92;
+}
+
+@media (prefers-color-scheme: light) {
+    .review-card {
+        background: #ffffff;
+        border-color: rgba(0, 0, 0, 0.06);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .review-title,
+    .review-desc,
+    .review-stars {
+        color: #111 !important;
+        opacity: 0.9;
+    }
+
+    .review-stars {
+        color: #e3b23c !important; /* slightly muted gold for light mode */
+    }
+}
+
+/* Pricing legal links */
+.legal-links {
+    margin-top: 12px;
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.legal-links a {
+    color: #4facfe;
+}
+
+.legal-links a:hover {
+    opacity: 1;
+}
+/* Fix oversized mockups in App Screens section */
+.gr-screen-card img {
+    width: 100%;
+    max-width: 360px;   /* clean, phone-sized */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+/* Fix huge mockups in the App Screens phone row */
+.gr-phone-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0 32px;
+}
+
+.gr-phone-row .hero-phone-shell {
+    width: 260px;              /* hard phone width */
+    max-width: 260px;
+    flex: 0 0 260px;
+    display: flex;
+    justify-content: center;
+}
+
+.gr-phone-row .hero-phone-inner img {
+    width: 100%;
+    height: auto;
+    border-radius: 22px;
+    display: block;
+}
+
+/* Hero brand badge */
+.hero-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    opacity: 0.92;
+}
+
+.hero-brand img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: block;
+}
+
+.hero-brand span {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+@media (prefers-color-scheme: light) {
+    .skill-tags li {
+        border-color: rgba(0, 0, 0, 0.22);   /* stronger line */
+        color: #000000;                      /* readable text */
+        background: rgba(0, 0, 0, 0.04);     /* subtle chip background */
+    }
+}
+
+.pricing-footer {
+    margin-top: 24px;
+    text-align: centre;
+    display: flex;
+    flex-direction: column;
+    align-items: centre;
+    gap: 10px;
+}
+
+.pricing-footer .container {
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: centre;
+    gap: 10px;
+}
+
+.pricing-footer .gr-pricing-cta {
+    width: auto;           /* ensures it doesn’t stretch full width */
+    padding-left: 34px;
+    padding-right: 34px;
+}

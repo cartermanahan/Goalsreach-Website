@@ -215,6 +215,14 @@
     margin: 0 !important;
 }
 
+/* NEW: ensure hero visual stack is centred as one unit */
+.hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* HERO image only */
 .hero-visual img {
     width: 100%;
@@ -225,12 +233,13 @@
     box-shadow: none !important;
 }
 
-
 .hero-caption {
     font-size: 0.8rem;
     opacity: 0.8;
     margin-top: 10px;
     text-align: center;
+    width: 100%;
+    max-width: 260px; /* keeps caption aligned to image width */
 }
 
 /* Sections */
@@ -794,6 +803,50 @@
     }
 }
 
+/* ===================================
+   Mobile horizontal scroll patterns
+   (Cards + FAQ + Reviews)
+=================================== */
+
+@media (max-width: 640px) {
+
+    /* Convert key grids into horizontal scroll rows */
+    .skills-grid,
+    .gr-system-grid,
+    .fit-grid,
+    .gr-faq-grid,
+    .gr-reviews .reviews-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 14px;
+        padding: 2px 6px 10px;
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    /* Card sizing for smooth swipe */
+    .skill-card,
+    .gr-system-card,
+    .service-card,
+    .gr-faq-item,
+    .review-card {
+        flex: 0 0 82%;
+        max-width: 82%;
+        scroll-snap-align: start;
+    }
+
+    /* Slightly reduce heavy shadows on tight screens (optional but cleaner) */
+    .skill-card,
+    .gr-system-card,
+    .service-card,
+    .review-card {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+    }
+}
+
 /* =============================
    Reviews Section
 ============================= */
@@ -908,6 +961,26 @@
     display: block;
 }
 
+/* Mobile-only horizontal scroll for phone trio */
+@media (max-width: 640px) {
+    .gr-phone-row {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 14px;
+        padding: 4px 6px 10px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .gr-phone-row .hero-phone-shell {
+        flex: 0 0 80%;
+        max-width: 80%;
+        width: auto;
+        scroll-snap-align: start;
+    }
+}
+
 /* Hero brand badge */
 .hero-brand {
     display: inline-flex;
@@ -940,10 +1013,10 @@
 
 .pricing-footer {
     margin-top: 24px;
-    text-align: centre;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: centre;
+    align-items: center;
     gap: 10px;
 }
 
@@ -952,7 +1025,7 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: centre;
+    align-items: center;
     gap: 10px;
 }
 
@@ -960,4 +1033,136 @@
     width: auto;           /* ensures it doesn’t stretch full width */
     padding-left: 34px;
     padding-right: 34px;
+}
+/* ===================================
+   Mobile horizontal scroll — Reviews
+=================================== */
+@media (max-width: 640px) {
+
+    /* Horizontal scroll container */
+    .gr-reviews .reviews-grid {
+        display: flex !important;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 16px;
+        padding: 4px 8px 14px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    /* Wider review cards for stronger presence */
+    .review-card {
+        flex: 0 0 90%;
+        max-width: 190%;
+        scroll-snap-align: start;
+        box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+    }
+
+    .review-card .review-desc {
+        line-height: 1.58;
+    }
+}
+
+/* ===================================
+   FINAL OVERRIDE — Reviews (Mobile)
+   Forces layout + width regardless of earlier rules
+=================================== */
+@media (max-width: 640px) {
+
+    /* Force horizontal scroll, not grid */
+    .gr-reviews .reviews-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 16px !important;
+        padding: 0 0 18px 0 !important;
+        margin-left: -12px !important;
+        margin-right: -12px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x mandatory !important;
+    }
+
+    /* Force wide, non-cramped review cards */
+    .review-card {
+        flex: 0 0 84vw !important;   /* near full width */
+        max-width: 84vw !important;
+        scroll-snap-align: start !important;
+        box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55) !important;
+        border-radius: 20px !important;
+    }
+
+    .review-card .review-desc {
+        line-height: 1.6 !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* ===================================
+   MOBILE GUTTER NORMALISATION
+   (Keeps a small, clean horizontal margin)
+=================================== */
+@media (max-width: 640px) {
+
+    /* Set a universal, subtle gutter */
+    :root {
+        --mobile-gutter: 14px;
+    }
+
+    /* Reset all conflicting paddings */
+    .page-section,
+    .gr-section,
+    .container,
+    .hero-inner {
+        padding-left: var(--mobile-gutter) !important;
+        padding-right: var(--mobile-gutter) !important;
+    }
+
+    /* Clean scroll rows so they don't explode outside viewport */
+    .skills-grid,
+    .gr-system-grid,
+    .fit-grid,
+    .gr-faq-grid,
+    .gr-reviews .reviews-grid,
+    .gr-phone-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: calc(var(--mobile-gutter) - 2px) !important;
+        padding-right: var(--mobile-gutter) !important;
+    }
+
+    /* Hard block against side overflow */
+    html, body {
+        overflow-x: hidden !important;
+    }
+}
+/* =========================================
+   MOBILE — TRUE FULL-WIDTH SCROLL CONTAINERS
+   (Ignore section padding; no cut-offs)
+========================================= */
+@media (max-width: 640px) {
+
+    /* All horizontal-scroll components */
+    .skills-grid,
+    .gr-system-grid,
+    .fit-grid,
+    .gr-faq-grid,
+    .gr-reviews .reviews-grid,
+    .gr-phone-row {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: -20px !important;   /* cancels section padding */
+        margin-right: -20px !important;  /* cancels section padding */
+        width: calc(100% + 40px) !important; /* ensures full-width rail */
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* Card widths remain controlled and centred inside the rail */
+    .skill-card,
+    .gr-system-card,
+    .service-card,
+    .gr-faq-item,
+    .review-card {
+        scroll-snap-align: start;
+    }
 }

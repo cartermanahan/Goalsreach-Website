@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Goalsreach – Privacy Policy</title>
+    <title>Goalsreach - Privacy Policy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Meta -->
     <meta name="description" content="Privacy Policy for Goalsreach – how we collect, use and protect your data.">
     <meta name="robots" content="noindex,follow">
+
+    <script>
+        (() => {
+            try {
+                const storedTheme = window.localStorage.getItem('goalsreach-theme');
+                if (storedTheme === 'light' || storedTheme === 'dark') {
+                    document.documentElement.dataset.theme = storedTheme;
+                }
+            } catch (error) {
+                console.warn('Theme preference unavailable.', error);
+            }
+        })();
+    </script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="../styles/main.css">
@@ -22,39 +35,85 @@
 </head>
 <body class="legal-page">
 
-<!-- Navbar -->
 <header class="navbar">
-    <div class="container">
-<div class="logo-container">
-    <img class="logo-icon" src="../images/logos/glass-logo.png" alt="Goalsreach icon">
-    <a href="home.html" class="logo">Goalsreach</a>
-</div>
-        <nav class="nav-links">
-            <ul>
-                <li><a href="home.html#how-it-works">How it works</a></li>
-                <li><a href="home.html#system">The system</a></li>
-                <li><a href="home.html#who">Who it’s for</a></li>
-                <li><a href="home.html#pricing">Pricing</a></li>
-                <li><a href="home.html#faq">FAQ</a></li>
-                <li><a href="privacy-policy.html" class="nav-cta">Privacy</a></li>
-                <li>
-                    <a href="https://apps.apple.com/ie/app/goalsreach/id6479711415"
-                       class="nav-cta"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Get the app
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div id="menu-toggle" class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="navbar-shell">
+        <button
+            class="navbar-brand"
+            id="navbar-brand-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-controls="nav-menu"
+            aria-expanded="true"
+            onclick="window.location.href='home.html'"
+        >
+            <picture>
+                <source
+                    srcset="../images/logos/goalsreach_logo_white.png"
+                    media="(prefers-color-scheme: dark)"
+                    data-theme-dark-source
+                />
+                <img
+                    src="../images/logos/goalsreach_logo_mask.png"
+                    data-theme-light-src="../images/logos/goalsreach_logo_mask.png"
+                    data-theme-dark-src="../images/logos/goalsreach_logo_white.png"
+                    alt=""
+                    class="logo-icon"
+                    width="28"
+                    height="28"
+                    decoding="async"
+                />
+            </picture>
+        </button>
+
+        <div class="navbar-pill">
+            <nav class="nav-links" aria-label="Primary">
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Toggle menu"
+                    aria-controls="nav-menu"
+                    aria-expanded="false"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+
+                <ul id="nav-menu">
+                    <li><a href="home.html#how-it-works">How it works</a></li>
+                    <li><a href="home.html#reviews">Reviews</a></li>
+                    <li><a href="home.html#habits">Habits</a></li>
+                    <li><a href="home.html#rewards">Rewards</a></li>
+                    <li><a href="home.html#pricing">Pricing</a></li>
+                    <li><a href="home.html#faq">FAQ</a></li>
+                    <li><a href="privacy-policy.html" class="is-active">Privacy</a></li>
+                    <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms</a></li>
+                </ul>
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button"
+                aria-label="Switch to dark mode"
+                title="Switch to dark mode"
+            >
+                <span class="theme-toggle-icon" aria-hidden="true"></span>
+            </button>
         </div>
+
+        <a
+            href="https://apps.apple.com/ie/app/goalsreach/id6479711415"
+            class="navbar-cta"
+            aria-label="Get Goalsreach on the App Store"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Get the app
+        </a>
     </div>
 </header>
 
+<main id="main">
 <!-- Hero -->
 <section class="legal-hero">
     <div class="container">
@@ -342,6 +401,7 @@
         </div>
     </div>
 </section>
+</main>
 
 <!-- Footer -->
 <footer class="site-footer">

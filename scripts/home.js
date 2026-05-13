@@ -592,7 +592,10 @@ function initScrollScenes(prefersReducedMotionQuery) {
 
             const rect = scene.getBoundingClientRect();
             const scrollRange = Math.max(1, rect.height - window.innerHeight);
-            const progress = clamp((-rect.top) / scrollRange, 0, 1);
+            const startOffset = 0;
+            const endOffset = window.innerHeight * 0.08;
+            const usableRange = Math.max(1, scrollRange - startOffset - endOffset);
+            const progress = clamp(((-rect.top) - startOffset) / usableRange, 0, 1);
             scene.style.setProperty("--scene-progress", progress.toFixed(4));
         });
     };

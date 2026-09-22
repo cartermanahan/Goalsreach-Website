@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Goalsreach - Turn your life into a video game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#05070d" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f6f8fc" media="(prefers-color-scheme: light)">
 
     <meta name="description" content="Goalsreach turns discipline into progress bars, streaks, unlocks, and rewards. A sharper accountability app for goals, habits, and momentum.">
     <meta name="keywords" content="Goalsreach, accountability app, goals, habits, rewards, productivity, self improvement, gamified discipline">
@@ -13,12 +15,15 @@
     <meta property="og:description" content="A cleaner accountability system for goals, habits, streaks, rewards, and momentum.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://goalsreach.co.uk">
-    <meta property="og:image" content="../images/cover.png">
+    <meta property="og:image" content="https://goalsreach.co.uk/images/cover.png">
+
+    <link rel="canonical" href="https://goalsreach.co.uk/">
 
     <link rel="icon" type="image/png" href="../images/logos/glass-logo.png">
 
     <script>
         (() => {
+            document.documentElement.classList.add('js');
             try {
                 const storedTheme = window.localStorage.getItem('goalsreach-theme');
                 if (storedTheme === 'light' || storedTheme === 'dark') {
@@ -38,15 +43,13 @@
     <script src="../scripts/home.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="navbar">
     <div class="navbar-shell">
-        <button
+        <a
             class="navbar-brand"
-            id="navbar-brand-toggle"
-            type="button"
-            aria-label="Open navigation"
-            aria-controls="nav-menu"
-            aria-expanded="true"
+            href="#top"
+            aria-label="Goalsreach home"
         >
             <picture>
                 <source
@@ -65,7 +68,7 @@
                     decoding="async"
                 />
             </picture>
-        </button>
+        </a>
 
         <div class="navbar-pill">
             <nav class="nav-links" aria-label="Primary">
@@ -73,7 +76,7 @@
                     class="menu-toggle"
                     id="menu-toggle"
                     type="button"
-                    aria-label="Toggle menu"
+                    aria-label="Open menu"
                     aria-controls="nav-menu"
                     aria-expanded="false"
                 >
@@ -81,6 +84,9 @@
                 </button>
 
                 <ul id="nav-menu">
+                    <li class="mobile-menu-heading" aria-hidden="true">
+                        <span>Explore Goalsreach</span>
+                    </li>
                     <li><a href="#how-it-works">How it works</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#habits">Habits</a></li>
@@ -89,6 +95,11 @@
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="privacy-policy.html">Privacy</a></li>
                     <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms</a></li>
+                    <li class="mobile-menu-download">
+                        <a href="https://apps.apple.com/app/id6479711415" target="_blank" rel="noopener noreferrer">
+                            Download on the App Store
+                        </a>
+                    </li>
                 </ul>
             </nav>
 
@@ -104,7 +115,7 @@
         </div>
 
         <a
-            href="https://apps.apple.com/ie/app/goalsreach/id6479711415"
+            href="https://apps.apple.com/app/id6479711415"
             class="navbar-cta"
             aria-label="Get Goalsreach on the App Store"
             target="_blank"
@@ -127,10 +138,8 @@
             data-secondary-frame-count="160"
                 data-secondary-frame-prefix="../images/visuals/hero-cover-frames-2/frame-"
                 data-secondary-frame-extension=".webp"
-                role="img"
-                aria-label="Goalsreach hero animation"
-                width="2880"
-                height="1608"
+                width="1440"
+                height="804"
             ></canvas>
             <div class="hero-media-scrim"></div>
             <div class="hero-media-glow"></div>
@@ -144,9 +153,9 @@
                             <span class="hero-title-desktop">Turn your life into a video game</span>
                             <span class="hero-title-mobile">Turn your life into a video game</span>
                         </h1>
-                        <p class="hero-subheadline">Dreams wont make you progress. Systems do.</p>
+                        <p class="hero-subheadline">Dreams won’t make you progress. Systems do.</p>
                         <a
-                            href="https://apps.apple.com/ie/app/goalsreach/id6479711415"
+                            href="https://apps.apple.com/app/id6479711415"
                             class="btn hero-cta-btn"
                             aria-label="Get Goalsreach on the App Store"
                             target="_blank"
@@ -159,13 +168,13 @@
                                 width="44"
                                 height="44"
                                 class="hero-cta-icon"
-                                loading="lazy"
+                                loading="eager"
                                 decoding="async"
                             />
                         </a>
                     </div>
 
-                    <div class="hero-copy-secondary" aria-live="polite">
+                    <div class="hero-copy-secondary" aria-hidden="true">
                         <span class="hero-story-kicker hero-story-step hero-story-step--kicker">Why it sticks</span>
                         <h2 class="hero-story-title hero-story-step hero-story-step--title">We make your progress feel like a game you want to win.</h2>
                         <p class="hero-story-body hero-story-step hero-story-step--body-one">Real life just got a levelling system.</p>
@@ -177,7 +186,7 @@
                         <p class="hero-story-bridge hero-story-step hero-story-step--body-three">Targets. Streaks. Unlocks.</p>
                     </div>
 
-                    <div class="hero-copy-tertiary" aria-live="polite">
+                    <div class="hero-copy-tertiary" aria-hidden="true">
                         <span class="hero-story-kicker hero-tertiary-step hero-tertiary-step--kicker">What happens next</span>
                         <h2 class="hero-tertiary-title">
                             <span class="hero-tertiary-line hero-tertiary-line--one">Build streaks.</span>
@@ -196,8 +205,8 @@
             <div class="reviews-sticky-shell">
                 <div class="container">
                     <div class="section-head reviews-head reveal">
-                        <h2 class="section-title">5.0 on the App Store.</h2>
-                        <p class="section-intro">People do not keep this because it looks nice. They keep it because it changes follow-through.</p>
+                        <h2 class="section-title">5.0 from 14 App Store ratings.</h2>
+                        <p class="section-intro">Built to turn good intentions into visible follow-through.</p>
                     </div>
                 </div>
 
@@ -276,6 +285,7 @@
                 </article>
                     </div>
                 </div>
+                <p class="reviews-swipe-hint">Swipe to read more reviews</p>
             </div>
         </div>
     </section>
@@ -287,9 +297,9 @@
                 <div class="container">
                     <div class="explainer-stage">
                         <div class="explainer-copy">
-                            <h2 class="section-title section-title-left">Set the target. Earn the AP. Unlock it guilt free.</h2>
-                            <p class="section-copy">Price the reward. Bank the progress. Spend it when you have actually earned it.</p>
-                            <div class="explainer-lines" aria-hidden="true">
+                            <h2 class="section-title section-title-left">Set a goal. Earn Accountability Points. Unlock your reward.</h2>
+                            <p class="section-copy">Give progress a score you can see. Goals and habits build AP; the rewards you choose give every point a purpose.</p>
+                            <div class="explainer-lines">
                                 <span>Goals build it.</span>
                                 <span>Habits stack it.</span>
                                 <span>Rewards cash it in.</span>
@@ -326,15 +336,15 @@
             <div class="usecase-sticky">
                 <div class="container">
                     <div class="usecase-shell reveal">
-                        <div class="usecase-row usecase-row--top" aria-hidden="true">
+                        <div class="usecase-row usecase-row--top">
                             <span>Business</span>
                             <span>Fitness</span>
                             <span>Study</span>
                         </div>
                         <h2 class="usecase-title">Works for the goals that actually change your life.</h2>
-                        <div class="usecase-row usecase-row--bottom" aria-hidden="true">
-                            <span>Weight loss</span>
-                            <span>ADHD routines</span>
+                        <div class="usecase-row usecase-row--bottom">
+                            <span>Wellbeing</span>
+                            <span>Daily routines</span>
                             <span>Sleep</span>
                         </div>
                     </div>
@@ -351,7 +361,7 @@
                         <div class="habits-copy">
                             <h2 class="section-title section-title-left">See your streak before you break it.</h2>
                             <p class="section-copy">The month view makes drift obvious fast. And if you want, every check-in can quietly bank AP in the background.</p>
-                            <div class="habits-points" aria-hidden="true">
+                            <div class="habits-points">
                                 <span>Month view</span>
                                 <span>Best streak</span>
                                 <span>+1 AP mode</span>
@@ -362,8 +372,12 @@
                         <div class="habits-visual" aria-label="Goalsreach habit calendar">
                             <img
                                 src="../images/mockups/dark/mockup-habit-dark.png"
+                                data-theme-light-src="../images/mockups/light/mockup-habit-light.png"
+                                data-theme-dark-src="../images/mockups/dark/mockup-habit-dark.png"
                                 alt="Goalsreach habit calendar screen"
                                 class="habits-phone"
+                                width="1096"
+                                height="2255"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -383,8 +397,8 @@
                 <div class="container">
                     <div class="rewards-stage reveal">
                         <div class="rewards-copy">
-                            <h2 class="section-title section-title-left">Make indulgence something you earn.</h2>
-                            <p class="section-copy">Set the AP price. Work toward the goal. Unlock it once you have properly paid for it with discipline.</p>
+                            <h2 class="section-title section-title-left">Turn consistency into rewards you choose.</h2>
+                            <p class="section-copy">Choose the AP cost, build your balance through real progress, then unlock something that matters to you.</p>
 
                             <div class="rewards-flow">
                                 <article class="rewards-flow-step">
@@ -392,18 +406,18 @@
                                     <span>Takeout, a night off, a purchase, whatever actually pulls you.</span>
                                 </article>
                                 <article class="rewards-flow-step">
-                                    <strong>2. Price the desire</strong>
-                                    <span>Set the AP cost based on how desirable it is and how much restraint it should take.</span>
+                                    <strong>2. Choose the AP cost</strong>
+                                    <span>Set a points target that makes the reward feel meaningful.</span>
                                 </article>
                                 <article class="rewards-flow-step">
                                     <strong>3. Earn your way there</strong>
-                                    <span>Goals and habits build the balance until the reward is actually yours to redeem.</span>
+                                    <span>Goals and habits build your balance until the reward is ready to redeem.</span>
                                 </article>
                             </div>
 
                             <div class="rewards-example">
                                 <span class="rewards-example-label">Example flow</span>
-                                <div class="rewards-example-track" aria-hidden="true">
+                                <div class="rewards-example-track">
                                     <span>Business goal +12</span>
                                     <span>Gym habit +1</span>
                                     <span>Study block +8</span>
@@ -415,8 +429,12 @@
                         <div class="rewards-visual" aria-label="Goalsreach rewards screen">
                             <img
                                 src="../images/mockups/dark/mockup-rewards-dark.png"
+                                data-theme-light-src="../images/mockups/light/mockup-rewards-light.png"
+                                data-theme-dark-src="../images/mockups/dark/mockup-rewards-dark.png"
                                 alt="Goalsreach rewards screen"
                                 class="rewards-phone"
+                                width="1096"
+                                height="2255"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -434,23 +452,23 @@
                 <div class="container">
                     <div class="inside-shell reveal">
                         <div class="inside-copy">
-                            <h2 class="section-title section-title-left">The app keeps the loop alive.</h2>
-                            <p class="section-copy">Your balance, streaks, rewards, and next moves stay in view so drifting off becomes obvious before it turns into a lost week.</p>
+                            <h2 class="section-title section-title-left">Your next move is always clear.</h2>
+                            <p class="section-copy">Your balance, streaks, rewards, and next actions stay visible so you can recover quickly when momentum starts to slip.</p>
                         </div>
 
                         <div class="inside-stage">
                             <div class="inside-points">
                                 <article class="inside-point">
-                                    <strong>Sharper onboarding</strong>
-                                    <span>You build the system properly before you ever need willpower.</span>
+                                    <strong>A system built around you</strong>
+                                    <span>Set up goals, habits, and rewards that fit the way you actually live.</span>
                                 </article>
                                 <article class="inside-point">
                                     <strong>Achievements</strong>
                                     <span>Wins stay visible, which makes momentum easier to defend.</span>
                                 </article>
                                 <article class="inside-point">
-                                    <strong>Dynamic notifications</strong>
-                                    <span>The app pulls you back in before drift becomes the default.</span>
+                                    <strong>Timely reminders</strong>
+                                    <span>Get a useful prompt before a missed day turns into a lost week.</span>
                                 </article>
                             </div>
 
@@ -459,6 +477,8 @@
                                     src="../images/mockups/dark/mockup-home-dark.png"
                                     alt="Goalsreach home screen"
                                     class="inside-phone"
+                                    width="1096"
+                                    height="2255"
                                     loading="lazy"
                                     decoding="async"
                                 />
@@ -489,14 +509,21 @@
                     <article class="pricing-card pricing-card-featured">
                         <span class="pricing-pill">7 days free trial</span>
                         <h3>Yearly</h3>
-                        <p class="pricing-trial-copy">7 day free trial</p>
                         <p class="pricing-price pricing-price--featured">£49.99<span>/year</span></p>
                         <p class="pricing-note">Unlocks full app access.</p>
-                        <p class="pricing-highlight">Best value. Save 35%</p>
+                        <p class="pricing-highlight">Best value. Save 30%</p>
                     </article>
                 </div>
 
                 <p class="pricing-footnote">Cancel any time during the trial. Payments, cancellations, and refunds are handled through Apple.</p>
+                <a
+                    href="https://apps.apple.com/app/id6479711415"
+                    class="btn pricing-cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Download Goalsreach
+                </a>
             </div>
         </div>
     </section>
@@ -560,7 +587,7 @@
                             <h2 class="section-title">Stop waiting to feel motivated.</h2>
                             <p class="section-intro">Build a system that makes showing up easier, progress clearer, and rewards worth protecting.</p>
                             <a
-                                href="https://apps.apple.com/ie/app/goalsreach/id6479711415"
+                                href="https://apps.apple.com/app/id6479711415"
                                 class="btn cta-button"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -574,7 +601,7 @@
                 <footer class="site-footer site-footer--final">
                     <div class="footer-inner">
                         <div class="footer-left">
-                            <p>&copy; 2025 Goalsreach</p>
+                            <p>&copy; 2026 Goalsreach</p>
                             <p class="footer-sub">Turn discipline into visible progress.</p>
                         </div>
 
@@ -589,7 +616,7 @@
                                 Terms of Use
                             </a>
                             <a
-                                href="https://apps.apple.com/ie/app/goalsreach/id6479711415"
+                                href="https://apps.apple.com/app/id6479711415"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="social-link"
@@ -603,5 +630,12 @@
         </div>
     </section>
 </main>
+<aside class="mobile-install-bar" aria-label="Download Goalsreach">
+    <div class="mobile-install-copy">
+        <img src="../images/logos/glass-logo.png" alt="" width="42" height="42" loading="lazy" decoding="async">
+        <span><strong>Goalsreach</strong><small>Turn progress into a game</small></span>
+    </div>
+    <a href="https://apps.apple.com/app/id6479711415" target="_blank" rel="noopener noreferrer">Get</a>
+</aside>
 </body>
 </html>
